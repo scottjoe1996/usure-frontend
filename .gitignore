@@ -1,7 +1,11 @@
 *.js
+!webpack.config.js
 !jest.config.js
 *.d.ts
+!react-app-env.d.ts
 node_modules
+
+build
 
 # CDK asset staging directory
 .cdk.staging
