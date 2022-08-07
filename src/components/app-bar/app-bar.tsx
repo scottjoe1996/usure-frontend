@@ -1,15 +1,10 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { AppBar as MaterialAppBar, Toolbar, Typography } from '@mui/material';
+import { AppBar as MaterialAppBar, Grid, Toolbar, Typography } from '@mui/material';
 import { Assessment } from '@mui/icons-material';
 
 import { theme } from '../../theme';
-
-const appBarTitle: React.CSSProperties = {
-  color: 'inherit',
-  textDecoration: 'none'
-};
 
 const AppBar = (): React.ReactElement => {
   const navigate = useNavigate();
@@ -20,11 +15,17 @@ const AppBar = (): React.ReactElement => {
 
   return (
     <MaterialAppBar position='static'>
-      <Toolbar onClick={routeToHome} sx={{ cursor: 'pointer', gap: theme.spacing(1) }}>
-        <Assessment />
-        <Typography variant='h6' noWrap sx={appBarTitle}>
-          Usure
-        </Typography>
+      <Toolbar sx={{ width: 'min-content' }}>
+        <Grid container spacing={theme.spacing(1)} onClick={routeToHome} sx={{ cursor: 'pointer', flexWrap: 'nowrap', alignItems: 'flex-end' }}>
+          <Grid item>
+            <Assessment />
+          </Grid>
+          <Grid item>
+            <Typography variant='h6' noWrap>
+              Usure
+            </Typography>
+          </Grid>
+        </Grid>
       </Toolbar>
     </MaterialAppBar>
   );
